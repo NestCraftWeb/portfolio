@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Neon Air Writing | Chand Chougule</title>
+  
+  <!-- MediaPipe Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- FontAwesome for UI Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Global Features for Portfolio Integration -->
+  <link rel="stylesheet" href="../global-features.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Fullscreen Video and Canvas -->
+  <video id="vid" playsinline></video>
+  <canvas id="c"></canvas>
+  
+  <!-- Mobile & Desktop UI Overlay -->
+  <div class="ui-overlay">
+    <div class="header">
+      <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+      <h1>Neon <span>Air</span></h1>
+    </div>
+    
+    <div class="controls">
+      <button id="toggle-draw" class="action-btn">
+        <i class="fas fa-pen-nib"></i> <span id="draw-status">Draw (Off)</span>
+      </button>
+      <button id="clear-canvas" class="action-btn clear">
+        <i class="fas fa-trash-alt"></i> Clear
+      </button>
+    </div>
+    
+    <div class="instructions">
+      <p><i class="fas fa-desktop"></i> PC: Hold <strong>Shift</strong> to draw, <strong>Space</strong> to clear.</p>
+      <p><i class="fas fa-mobile-alt"></i> Mobile/Touch: Tap <strong>Draw</strong> to toggle line drawing.</p>
+      <p class="loading-text" id="loading-indicator">Loading Camera & Tracking Models...</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="../global-features.js"></script>
+</body>
+</html>
