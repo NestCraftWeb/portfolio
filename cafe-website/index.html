@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Coffee | Premium Roastery</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader-logo">AURA</div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-follower"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">AURA.</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#reservation">Reserve</a></li>
+      </ul>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2600&auto=format&fit=crop');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="subtitle fade-up">Established 2026</span>
+      <h1 class="title fade-up delay-1">Awaken Your<br>Senses</h1>
+      <p class="description fade-up delay-2">An ethereal coffee experience crafted for the connoisseur.</p>
+      <div class="magnetic-wrap fade-up delay-3">
+        <a href="#menu" class="btn-primary magnetic-btn">Explore Menu</a>
+      </div>
+    </div>
+    <div class="scroll-indicator fade-up delay-4">
+      <span>Scroll to discover</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story" class="story section-padding reveal">
+    <div class="container story-grid">
+      <div class="story-image-wrap">
+        <div class="story-image img-parallax" style="background-image: url('https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=1000&auto=format&fit=crop');"></div>
+        <div class="experience-badge">
+          <span class="years">10+</span>
+          <span class="text">Years of<br>Excellence</span>
+        </div>
+      </div>
+      <div class="story-text">
+        <span class="section-subtitle">THE ART OF ROASTING</span>
+        <h2 class="section-title">A Symphony of Rich Flavors.</h2>
+        <p>At Aura, we believe that coffee is more than just a beverage; it's a sensory journey. We meticulously source our beans from the most exclusive high-altitude estates around the globe.</p>
+        <p>Expertly roasted in-house in small batches, every cup is crafted to highlight delicate notes and rich aromas, delivering an unforgettable and luxurious tasting experience.</p>
+        <div class="magnetic-wrap signature-wrap">
+          <a href="#reservation" class="btn-outline magnetic-btn">Book a Table</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase / Interstitial -->
+  <section class="showcase">
+    <div class="showcase-bg parallax-bg" style="background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=2600&auto=format&fit=crop');"></div>
+    <div class="showcase-overlay"></div>
+    <div class="showcase-content reveal">
+      <h2 class="showcase-text">"Where passion meets precision in every pour."</h2>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu section-padding reveal">
+    <div class="container">
+      <div class="center-heading">
+        <span class="section-subtitle">OUR SELECTION</span>
+        <h2 class="section-title">The Curator's Menu</h2>
+      </div>
+      
+      <div class="menu-grid">
+        <!-- Espresso -->
+        <div class="menu-category">
+          <h3>Espresso Craft</h3>
+          <div class="menu-item hover-reveal">
+            <div class="menu-details">
+              <h4>Aura Signature Espresso</h4>
+              <p>Notes of dark chocolate and wild berry</p>
+            </div>
+            <div class="menu-price">₹400</div>
+          </div>
+          <div class="menu-item hover-reveal">
+            <div class="menu-details">
+              <h4>Velvet Macchiato</h4>
+              <p>Espresso marked with silky micro-foam</p>
+            </div>
+            <div class="menu-price">₹500</div>
+          </div>
+          <div class="menu-item hover-reveal">
+            <div class="menu-details">
+              <h4>Golden Cortado</h4>
+              <p>Equal parts espresso and warm steamed milk</p>
+            </div>
+            <div class="menu-price">₹450</div>
+          </div>
+        </div>
+
+        <!-- Pour Over -->
+        <div class="menu-category">
+          <h3>Pour Over Reserves</h3>
+          <div class="menu-item hover-reveal">
+            <div class="menu-details">
+              <h4>Ethiopian Yirgacheffe</h4>
+              <p>Floral, jasmine, sweet lemon</p>
+            </div>
+            <div class="menu-price">₹650</div>
+          </div>
+          <div class="menu-item hover-reveal">
+            <div class="menu-details">
+              <h4>Colombian Geisha</h4>
+              <p>Bergamot, peach, honey finish</p>
+            </div>
+            <div class="menu-price">₹950</div>
+          </div>
+          <div class="menu-item hover-reveal">
+            <div class="menu-details">
+              <h4>Panama Esmeralda</h4>
+              <p>The pinnacle of coffee, vibrant and complex</p>
+            </div>
+            <div class="menu-price">₹1200</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section id="reservation" class="reservation section-padding reveal">
+    <div class="container res-container">
+      <div class="res-content">
+        <span class="section-subtitle">JOIN US</span>
+        <h2 class="section-title">Reserve Your Experience</h2>
+        <p>Ensure your spot in our intimate atmosphere. We recommend booking in advance to guarantee an unhurried, premium experience.</p>
+        <div class="contact-info">
+          <p><i class="fas fa-map-marker-alt"></i> Bandra West, Mumbai, Maharashtra</p>
+          <p><i class="fas fa-phone"></i> +91 7249512106</p>
+          <p><i class="fas fa-envelope"></i> reservations@auracoffee.com</p>
+        </div>
+      </div>
+      <div class="res-form-wrap">
+        <form class="res-form">
+          <div class="form-row">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-row">
+            <input type="date" required>
+            <input type="time" required>
+          </div>
+          <div class="form-row">
+            <select required>
+              <option value="" disabled selected>Number of Guests</option>
+              <option value="1">1 Person</option>
+              <option value="2">2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5+">5+ Group</option>
+            </select>
+          </div>
+          <div class="magnetic-wrap form-btn-wrap">
+            <button type="button" class="btn-primary magnetic-btn" onclick="alert('Reservation Sent!')">Confirm Booking</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <h2>AURA.</h2>
+        <p>Elevating the art of coffee to a luxurious standard.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Social</h3>
+        <ul>
+          <li><a href="#" class="hover-underline">Instagram</a></li>
+          <li><a href="#" class="hover-underline">Twitter</a></li>
+          <li><a href="#" class="hover-underline">Facebook</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Hours</h3>
+        <ul>
+          <li>Mon - Fri: 7am - 8pm</li>
+          <li>Sat - Sun: 8am - 9pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Aura Coffee Roasters. All rights reserved.</p>
+      <p>Designed by <a href="../index.html" class="hover-underline">Chand Chougule</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

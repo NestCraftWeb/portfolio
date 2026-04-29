@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusFi | Crypto Terminal</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <div class="background-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
+
+  <div class="dashboard-wrapper">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar glass">
+      <div class="brand">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>NexusFi</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="active"><i class="fa-solid fa-chart-pie"></i> Overview</li>
+        <li><i class="fa-solid fa-arrow-right-arrow-left"></i> Exchange</li>
+        <li><i class="fa-solid fa-wallet"></i> Wallets</li>
+        <li><i class="fa-solid fa-clock-rotate-left"></i> History</li>
+        <li><i class="fa-solid fa-gear"></i> Settings</li>
+      </ul>
+      <div class="user-profile">
+        <img src="https://i.pravatar.cc/100?img=33" alt="User">
+        <div>
+          <h4>Alex Doe</h4>
+          <span class="status">Pro Member</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="search-box glass">
+          <i class="fa-solid fa-search"></i>
+          <input type="text" placeholder="Search tokens, pairs, or addresses...">
+        </div>
+        <div class="actions">
+          <button class="notif-btn glass"><i class="fa-regular fa-bell"></i><span class="dot"></span></button>
+          <button class="connect-btn glass blur-bg">0x7F...3a9B</button>
+        </div>
+      </header>
+
+      <!-- Stats Row -->
+      <section class="stats-grid">
+        <div class="stat-card glass blur-bg">
+          <div class="stat-header">
+            <span class="token-icon btc"><i class="fa-brands fa-bitcoin"></i></span>
+            <span class="change positive">+2.4% <i class="fa-solid fa-arrow-trend-up"></i></span>
+          </div>
+          <h3>Bitcoin</h3>
+          <p class="value">$64,230.50</p>
+        </div>
+        
+        <div class="stat-card glass blur-bg">
+          <div class="stat-header">
+            <span class="token-icon eth"><i class="fa-brands fa-ethereum"></i></span>
+            <span class="change positive">+1.8% <i class="fa-solid fa-arrow-trend-up"></i></span>
+          </div>
+          <h3>Ethereum</h3>
+          <p class="value">$3,450.20</p>
+        </div>
+
+        <div class="stat-card glass blur-bg">
+          <div class="stat-header">
+            <span class="token-icon sol"><i class="fa-solid fa-s"></i></span>
+            <span class="change negative">-0.5% <i class="fa-solid fa-arrow-trend-down"></i></span>
+          </div>
+          <h3>Solana</h3>
+          <p class="value">$142.80</p>
+        </div>
+
+        <div class="stat-card glass blur-bg balance-card">
+          <h4>Total Portfolio</h4>
+          <p class="value">$128,450.00</p>
+          <p class="subtitle">≈ 1.99 BTC</p>
+        </div>
+      </section>
+
+      <!-- Chart Area -->
+      <section class="chart-section glass blur-bg">
+        <div class="chart-header">
+          <div>
+            <h2>Market Overview</h2>
+            <p>BTC/USD - Realtime</p>
+          </div>
+          <div class="time-filters">
+            <button>1H</button>
+            <button>1D</button>
+            <button class="active">1W</button>
+            <button>1M</button>
+            <button>1Y</button>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="mainChart"></canvas>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

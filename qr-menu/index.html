@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital QR Menu</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Dynamic Background -->
+  <div class="bg-mesh">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- Header -->
+    <header class="header">
+      <div class="header-top">
+        <div class="brand">
+          <h1>Lumina Café</h1>
+          <p>Scan. Order. Enjoy.</p>
+        </div>
+        <div class="cart-icon">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="badge">0</span>
+        </div>
+      </div>
+      
+      <!-- Filter Tabs -->
+      <nav class="categories">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="coffee">Coffee</button>
+        <button class="filter-btn" data-filter="food">Bites</button>
+        <button class="filter-btn" data-filter="dessert">Desserts</button>
+      </nav>
+    </header>
+
+    <!-- Menu Grid -->
+    <main class="menu-grid" id="menu-grid">
+      <!-- Item: Coffee -->
+      <div class="menu-item glass" data-category="coffee">
+        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Classic Latte</h3>
+            <p>Espresso mixed with finely steamed milk.</p>
+          </div>
+          <div class="item-footer">
+            <span class="price">₹250</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item: Coffee -->
+      <div class="menu-item glass" data-category="coffee">
+        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Iced Caramel Macchiato</h3>
+            <p>Cold, sweet, and perfectly layered over ice.</p>
+          </div>
+          <div class="item-footer">
+            <span class="price">₹320</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item: Food -->
+      <div class="menu-item glass" data-category="food">
+        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Avocado Toast</h3>
+            <p>Smashed avocado, cherry tomatoes, and microgreens on sourdough.</p>
+          </div>
+          <div class="item-footer">
+            <span class="price">₹450</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item: Food -->
+      <div class="menu-item glass" data-category="food">
+        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1623341214825-9f4f963727da?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Truffle Fries</h3>
+            <p>Crispy fries tossed in truffle oil and parmesan cheese.</p>
+          </div>
+          <div class="item-footer">
+            <span class="price">₹380</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item: Dessert -->
+      <div class="menu-item glass" data-category="dessert">
+        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1579954115545-a95591f28bfc?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="item-content">
+          <div class="item-info">
+            <h3>Dark Chocolate Lava Cake</h3>
+            <p>Warm chocolate cake with a gooey, molten center.</p>
+          </div>
+          <div class="item-footer">
+            <span class="price">₹550</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Item: Dessert -->
+      <div class="menu-item glass" data-category="dessert">
+        <div class="item-img" style="background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?q=80&w=800&auto=format&fit=crop');"></div>
+        <div class="item-content">
+          <div class="item-info">
+            <h3>New York Cheesecake</h3>
+            <p>Classic dense cheesecake with a graham cracker crust.</p>
+          </div>
+          <div class="item-footer">
+            <span class="price">₹480</span>
+            <button class="add-btn"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    
+    <!-- Floating Action / Call Waiter -->
+    <button class="fab glass" onclick="alert('Waiter paged to your table!')">
+      <i class="fas fa-concierge-bell"></i>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
