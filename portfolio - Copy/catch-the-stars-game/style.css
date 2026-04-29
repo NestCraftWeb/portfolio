@@ -1,0 +1,59 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#game-area {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    background-color: #000;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: yellow;
+    clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.star:hover {
+    transform: scale(1.2);
+}
+
+#start-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff9500;
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
+#start-btn:hover {
+    background-color: #e08900;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synapse AI Interface</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-brain glow"></i>
+        <span>Synapse</span>
+      </div>
+      
+      <button class="new-chat-btn">
+        <i class="fa-solid fa-plus"></i> New Conversation
+      </button>
+
+      <div class="chat-history">
+        <p class="history-label">Today</p>
+        <ul>
+          <li class="active"><i class="fa-regular fa-message"></i> React Native Architecture</li>
+          <li><i class="fa-regular fa-message"></i> Sorting Algorithm Python</li>
+        </ul>
+        <p class="history-label">Previous 7 Days</p>
+        <ul>
+          <li><i class="fa-regular fa-message"></i> Explain Quantum Computing</li>
+          <li><i class="fa-regular fa-message"></i> Website CSS Fix</li>
+        </ul>
+      </div>
+      
+      <div class="user-settings">
+        <div class="user-avatar">CC</div>
+        <span>Chand C.</span>
+        <i class="fa-solid fa-ellipsis"></i>
+      </div>
+    </nav>
+
+    <!-- Main Chat Area -->
+    <main class="chat-area">
+      <!-- Header -->
+      <header class="chat-header">
+        <div class="model-selector">
+          <span>Synapse-v4</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="header-actions">
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+      </header>
+
+      <!-- Message History -->
+      <div class="messages" id="chat-container">
+        
+        <!-- User Message -->
+        <div class="message user-message">
+          <div class="avatar">CC</div>
+          <div class="content">
+            <p>Can you show me how to create a stylized glassmorphic card using pure CSS?</p>
+          </div>
+        </div>
+
+        <!-- System Message -->
+        <div class="message ai-message">
+          <div class="avatar ai-avatar"><i class="fa-solid fa-brain"></i></div>
+          <div class="content">
+            <p>Certainly! Glassmorphism is a popular UI trend that combines a frosted glass effect with a vivid background. Here is a modern implementation using pure CSS properties like <code>backdrop-filter</code>.</p>
+            
+            <pre><code class="language-css">
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  color: white;
+}
+            </code></pre>
+            
+            <p>Make sure to place elements with bright colors or gradients <em>behind</em> this card to maximize the visual effect.</p>
+          </div>
+          <div class="actions">
+            <i class="fa-regular fa-copy"></i>
+            <i class="fa-regular fa-thumbs-up"></i>
+            <i class="fa-regular fa-thumbs-down"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-container">
+        <form id="chat-form">
+          <div class="input-box">
+            <button type="button" class="attach-btn"><i class="fa-solid fa-paperclip"></i></button>
+            <textarea id="prompt-input" rows="1" placeholder="Send a message to Synapse..."></textarea>
+            <button type="submit" class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </form>
+        <p class="disclaimer">Synapse can make mistakes. Consider verifying important information.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
