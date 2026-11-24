@@ -114,40 +114,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hardcoded Data Mapping for the demo (Normally comes from JSON/CMS)
   const projectData = {
+    "Handy AI": {
+      desc: "An immersive browser-based vision AI application utilizing MediaPipe machine learning. Tracks hand landmarks in real time with high-precision gesture recognition and zero-latency air drawing.",
+      tech: ["MediaPipe AI", "HTML5 Canvas", "Computer Vision", "Vanilla JS"],
+      url: "handy-ai.html"
+    },
+    "Kroma 3D": {
+      desc: "An interactive, real-time 3D product customizer built on Three.js and WebGL. Allows users to inspect high-fidelity geometry, alter PBR materials, rotate lighting environments, and render custom views.",
+      tech: ["Three.js", "WebGL", "GLSL Shaders", "CSS3 Glass"],
+      url: "3d-configurator/index.html"
+    },
+    "Synapse AI": {
+      desc: "A sleek, dark-mode conversational AI interface designed with liquid glassmorphism, responsive message threading, Markdown rendering, and code syntax highlighting.",
+      tech: ["JavaScript ES6+", "CSS Glassmorphism", "REST API", "Responsive UX"],
+      url: "ai-chat/index.html"
+    },
+    "NexusFi Terminal": {
+      desc: "A real-time financial cryptocurrency terminal featuring live market feeds, interactive candlestick charts, volatility metrics, and portfolio tracking.",
+      tech: ["Chart.js", "Canvas API", "CSS Grid", "Async / Await"],
+      url: "crypto-dash/index.html"
+    },
+    "Sonorus Player": {
+      desc: "A bespoke audiophile-grade web audio player featuring dynamic frequency visualizers, queue management, volume curves, and fluid playback animations.",
+      tech: ["Web Audio API", "HTML5 Audio", "Canvas Visualizer", "Vanilla JS"],
+      url: "music-player/index.html"
+    },
     "Digital QR Menu": {
-      desc: "A mobile-first, premium digital menu designed for cafes and restaurants. Features a sleek glassmorphous UI, fluid background animations, dynamic category filtering, and micro-interactions for adding items to the cart.",
-      tech: ["HTML5", "CSS3 Grid/Flexbox", "Vanilla JS"],
+      desc: "A mobile-first, contactless digital dining experience designed for modern restaurants and cafes. Features instant filtering, dish customization, and cart management.",
+      tech: ["HTML5", "CSS3 Grid/Flexbox", "Vanilla JS", "Micro-interactions"],
       url: "qr-menu/index.html"
     },
-    "Premium Cafe Site": {
-      desc: "A luxurious, premium cafe website featuring a dark espresso and gold aesthetic. Includes advanced interactions like a custom cursor, magnetic buttons, and parallax scrolling.",
-      tech: ["HTML5", "CSS3 Animations", "Vanilla JS"],
-      url: "cafe-website/index.html"
+    "Calculator Pro": {
+      desc: "A minimalist utility application with a bespoke neumorphic/glass interface. Handles multi-step arithmetic, percentage computations, and state memory with comprehensive error protection.",
+      tech: ["JavaScript ES6", "CSS Grid", "Neumorphism", "Event Delegation"],
+      url: "calculator/index.html"
+    },
+    "TaskFlow Minimal": {
+      desc: "An ultra-minimalist task management engine designed for peak productivity. Includes localStorage data persistence, priority tagging, and satisfying completion animations.",
+      tech: ["LocalStorage API", "DOM Manipulation", "CSS3 Transitions", "Vanilla JS"],
+      url: "to do list/index.html"
     },
     "Catch the Stars": {
-      desc: "A highly interactive, physics-based browser game designed to challenge players' timing and reflex speed. Meticulously crafted using requestAnimationFrame for 60fps performance.",
-      tech: ["HTML5 Canvas", "Vanilla JS", "CSS3 Animations"],
+      desc: "A physics-based browser arcade game engineered to test player reflexes. Built with requestAnimationFrame for silky smooth 60fps canvas particle rendering.",
+      tech: ["HTML5 Canvas", "Physics Engine", "Vanilla JS", "Game Loop"],
       url: "catch-the-stars-game/index.html"
     },
     "Scrolling Text": {
-      desc: "An immersive, infinite-scrolling text experience that manipulates the DOM on scroll. Demonstrates advanced typography rendering and scroll-trigger methodologies without heavy libraries.",
-      tech: ["JavaScript", "HTML5", "CSS Transformations"],
+      desc: "An experimental typography website demonstrating scroll-triggered 3D kinetic text distortion and smooth momentum physics without heavy third-party libraries.",
+      tech: ["JavaScript", "HTML5", "CSS Transforms", "Scroll Physics"],
       url: "scrolling-text-website/index.html"
     },
-    "Calculator Pro": {
-      desc: "A luxurious utility application with a bespoke neumorphic/glass interface. Handles complex arithmetic operations smoothly with extensive input validation and error handling.",
-      tech: ["JavaScript ES6", "CSS Grid", "Event Delegation"],
-      url: "calculator/index.html"
+    "AERIS Architecture": {
+      desc: "An editorial architectural showcase and luxury real estate portal featuring split-screen typography, interactive floor plans, and immersive gallery viewports.",
+      tech: ["HTML5", "Advanced CSS Grid", "Editorial Typography", "Responsive Design"],
+      url: "real-estate/index.html"
+    },
+    "Premium Cafe Site": {
+      desc: "A luxurious cafe website featuring an espresso and gold aesthetic. Integrates custom magnetic cursor physics, smooth parallax transitions, and online reservations.",
+      tech: ["HTML5", "CSS3 Animations", "Parallax Scroll", "Vanilla JS"],
+      url: "cafe-website/index.html"
     },
     "Furniture Design": {
-      desc: "A high-end, visual e-commerce landing page focused on modern furniture. Built using CSS Grid to simulate complex, irregular layouts typical of high-fashion editorials.",
-      tech: ["HTML5", "Advanced CSS Grid", "Responsive Design"],
-      url: "furniture site/demo3.0.html" // Link to the specific file inside
-    },
-    "Handy AI": {
-      desc: "A fullscreen browser-based hand gesture experience. Features real-time hand tracking, gesture physics, and an air-drawing canvas using MediaPipe machine learning.",
-      tech: ["MediaPipe AI", "HTML5 Canvas", "Vanilla JS"],
-      url: "handy-ai.html"
+      desc: "A high-fashion e-commerce landing experience celebrating modern minimalist furniture. Features asymmetrical editorial grid layouts and curated collection showcases.",
+      tech: ["HTML5", "Advanced CSS Grid", "Editorial Layout", "Responsive Design"],
+      url: "furniture site/demo3.0.html"
     }
   };
 

@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kroma | 3D Configurator</title>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- Loading Screen for 3D Assets -->
@@ -40,7 +44,7 @@
 
   <!-- UI Overlay -->
   <div class="ui-panel">
-    
+
     <div class="product-info">
       <h1>Aura Series X</h1>
       <p class="price" id="priceDisplay">$4,500</p>
@@ -53,11 +57,16 @@
     <div class="color-options" id="colorOptions">
       <h3>Select Finish</h3>
       <div class="swatches">
-        <button class="swatch active" data-color="#111111" data-roughness="0.2" data-metalness="0.8" style="background: #111;" aria-label="Obsidian Black"></button>
-        <button class="swatch" data-color="#E8E8E8" data-roughness="0.4" data-metalness="0.6" style="background: #E8E8E8;" aria-label="Frost White"></button>
-        <button class="swatch" data-color="#D4AF37" data-roughness="0.1" data-metalness="1.0" style="background: linear-gradient(135deg, #FFDF73, #D4AF37);" aria-label="Solid Gold"></button>
-        <button class="swatch" data-color="#FF5722" data-roughness="0.5" data-metalness="0.1" style="background: #FF5722;" aria-label="Matte Orange"></button>
-        <button class="swatch" data-color="#3F51B5" data-roughness="0.2" data-metalness="0.9" style="background: linear-gradient(135deg, #7986CB, #3F51B5);" aria-label="Metallic Blue"></button>
+        <button class="swatch active" data-color="#111111" data-roughness="0.2" data-metalness="0.8"
+          style="background: #111;" aria-label="Obsidian Black"></button>
+        <button class="swatch" data-color="#E8E8E8" data-roughness="0.4" data-metalness="0.6"
+          style="background: #E8E8E8;" aria-label="Frost White"></button>
+        <button class="swatch" data-color="#D4AF37" data-roughness="0.1" data-metalness="1.0"
+          style="background: linear-gradient(135deg, #FFDF73, #D4AF37);" aria-label="Solid Gold"></button>
+        <button class="swatch" data-color="#FF5722" data-roughness="0.5" data-metalness="0.1"
+          style="background: #FF5722;" aria-label="Matte Orange"></button>
+        <button class="swatch" data-color="#3F51B5" data-roughness="0.2" data-metalness="0.9"
+          style="background: linear-gradient(135deg, #7986CB, #3F51B5);" aria-label="Metallic Blue"></button>
       </div>
     </div>
 
@@ -84,4 +93,5 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   <script src="script.js"></script>
 </body>
+
 </html>
