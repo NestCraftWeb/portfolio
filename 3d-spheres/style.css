@@ -1,0 +1,9 @@
+/* All basic layout styles are managed by Tailwind CSS. */
+
+#canvas-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* Ensures 3D canvas scales proportionally on mobile */
+    pointer-events: auto; /* Allows mouse interactions to push spheres */
+    touch-action: none; /* Prevent scroll interference on mobile when touching canvas */
+}

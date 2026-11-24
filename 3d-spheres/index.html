@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Floating Spheres - Premium Tech</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#03030b] font-['Inter'] text-white overflow-hidden m-0 p-0 w-full h-full">
+    
+    <!-- Hero Section Container: h-screen w-full overflow-hidden -->
+    <main class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        
+        <!-- 3D Canvas Container -->
+        <div id="canvas-container" class="absolute inset-0 z-0"></div>
+        
+        <!-- Glassmorphism Card (Centered specifically for 9:16 mobile aspect + Desktop flexible) -->
+        <div class="relative z-10 flex flex-col items-center justify-center w-full max-w-[min(90vw,400px)] aspect-[9/16] sm:aspect-auto sm:h-auto sm:p-14 p-8 rounded-3xl backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)] pointer-events-none text-center">
+            
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-light tracking-widest uppercase mb-4 text-transparent bg-clip-text bg-gradient-to-br from-white to-[#888cad] drop-shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                Tech Premium
+            </h1>
+            
+            <p class="text-[0.9rem] sm:text-[1.1rem] text-[#626578] tracking-[0.2em] uppercase font-normal">
+                Interactive 3D Glass & Aluminum
+            </p>
+            
+            <div class="mt-10 pointer-events-auto">
+                <button class="px-8 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/20 backdrop-blur-md transition-all duration-300 tracking-widest text-xs sm:text-sm uppercase text-[#d1d3e0] hover:text-white shadow-[0_0_20px_rgba(255,255,255,0.05)] hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                    Activate Protocol
+                </button>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

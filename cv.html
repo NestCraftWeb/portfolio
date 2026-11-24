@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chand Chougule - CV / Resume</title>
+    <!-- Luxurious Fonts matching the portfolio -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #111111;
+            --text-color: #333333;
+            --accent-color: #666666;
+            --bg-color: #ffffff;
+            --border-color: #eaeaea;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f5f5f5;
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .resume-wrapper {
+            max-width: 850px;
+            margin: 50px auto;
+            background: var(--bg-color);
+            padding: 70px 90px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin: 40px 0 25px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Header / Contact Info */
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* Profile */
+        .profile-text {
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
+        }
+        .skill-name {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .skill-desc {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: right;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+        
+        .project-item {
+            page-break-inside: avoid;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .project-title {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            font-family: 'Lato', sans-serif;
+        }
+        
+        .project-category {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .project-desc {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        /* Print Media Query */
+        @media print {
+            body { 
+                background: transparent; 
+                -webkit-print-color-adjust: exact;
+            }
+            .resume-wrapper {
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            @page {
+                margin: 2cm;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="resume-wrapper">
+    <!-- Header Section -->
+    <header>
+        <h1>Chand Chougule</h1>
+        <h2>Web Developer & UI/UX Specialist</h2>
+        <div class="contact-info">
+            <span>Phone: +91 7249512106</span>
+            <span><a href="https://www.instagram.com/chand_chougule" target="_blank">Instagram: @chand_chougule</a></span>
+            <span>Location: India</span>
+            <span>Website: Portfolio Link Here</span>
+        </div>
+    </header>
+
+    <!-- Professional Profile Section -->
+    <section>
+        <h3>Professional Profile</h3>
+        <p class="profile-text">
+            I am a dedicated Web Developer architecting sophisticated and high-performance digital solutions. Specializing in premium aesthetics and cutting-edge web technologies—including HTML, CSS, and JavaScript—my work marries form with function to create seamless, luxurious user experiences. My philosophy centers on precision, elegance, and continuous innovation. Every line of code is written with intent, transforming complex requirements into refined masterpieces.
+        </p>
+    </section>
+
+    <!-- Technical Mastery Section -->
+    <section>
+        <h3>Technical Mastery</h3>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <span class="skill-name">HTML5</span>
+                <span class="skill-desc">Semantic & Accessible Structure</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">CSS3 / SCSS</span>
+                <span class="skill-desc">Bespoke Styling & Animations</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-desc">Dynamic & Interactive Logic</span>
+            </div>
+            <div class="skill-item">
+                <span class="skill-name">UI/UX Design</span>
+                <span class="skill-desc">Premium Interface Crafting</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Works Section -->
+    <section>
+        <h3>Selected Works</h3>
+        <div class="project-grid">
+            
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">3D Configurator</div>
+                    <div class="project-category">WebGL Experience</div>
+                </div>
+                <div class="project-desc">
+                    Developed a cutting-edge 3D product configurator providing an immersive WebGL experience, allowing real-time interaction and customization.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Neon Air Writing</div>
+                    <div class="project-category">AI Interactive Web App</div>
+                </div>
+                <div class="project-desc">
+                    Built an innovative hand-tracking application using AI that enables users to draw on a digital canvas in mid-air with real-time neon rendering.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Premium Cafe Site & Aura Estates</div>
+                    <div class="project-category">Domain Highlights & Landing Pages</div>
+                </div>
+                <div class="project-desc">
+                    Designed and architected luxurious landing pages for the hospitality and real estate sectors, complete with custom cursors, magnetic buttons, parallax scrolling, and dynamic typing effects to provide a premium UX.
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Digital QR Menu</div>
+                    <div class="project-category">Mobile Web App</div>
+                </div>
+                <div class="project-desc">
+                    Created an intuitive mobile-first digital menu interface designed for seamless restaurant navigation and ordering. 
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-header">
+                    <div class="project-title">Sonic Beats</div>
+                    <div class="project-category">Interactive Audio</div>
+                </div>
+                <div class="project-desc">
+                    Developed "Sonic Beats," an interactive web-based audio player demonstrating state management and rich UI integrations for media handling.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience / Education Placeholder -->
+    <section>
+        <h3>Experience & Education</h3>
+        <p class="profile-text" style="color: #666; font-style: italic;">
+            [This section is reserved for your professional work history, contract roles, degrees, or certifications. Customize as needed.]
+        </p>
+    </section>
+</div>
+
+</body>
+</html>

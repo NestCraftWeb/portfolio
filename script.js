@@ -44,63 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* --- Mobile Navigation --- */
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-  if (mobileMenuBtn && mobileMenu) {
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-      
-      const menuIcon = mobileMenuBtn.querySelector('.lucide-menu');
-      const closeIcon = mobileMenuBtn.querySelector('.lucide-x');
-      
-      if (mobileMenu.classList.contains('open')) {
-        if(menuIcon) {
-          menuIcon.style.opacity = '0';
-          menuIcon.style.transform = 'rotate(180deg) scale(0.5)';
-        }
-        if(closeIcon) {
-          closeIcon.style.opacity = '1';
-          closeIcon.style.transform = 'rotate(0deg) scale(1)';
-        }
-        document.body.style.overflow = 'hidden';
-      } else {
-        if(menuIcon) {
-          menuIcon.style.opacity = '1';
-          menuIcon.style.transform = 'rotate(0deg) scale(1)';
-        }
-        if(closeIcon) {
-          closeIcon.style.opacity = '0';
-          closeIcon.style.transform = 'rotate(-180deg) scale(0.5)';
-        }
-        document.body.style.overflow = '';
-      }
-    });
-
-    // Close mobile menu on link click
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('open')) {
-          mobileMenu.classList.remove('open');
-          const menuIcon = mobileMenuBtn.querySelector('.lucide-menu');
-          const closeIcon = mobileMenuBtn.querySelector('.lucide-x');
-          
-          if(menuIcon) {
-            menuIcon.style.opacity = '1';
-            menuIcon.style.transform = 'rotate(0deg) scale(1)';
-          }
-          if(closeIcon) {
-            closeIcon.style.opacity = '0';
-            closeIcon.style.transform = 'rotate(-180deg) scale(0.5)';
-          }
-          document.body.style.overflow = '';
-        }
-      });
-    });
-  }
-
   /* --- Project Modal Logic --- */
   const modal = document.getElementById('project-modal');
   const modalClose = document.querySelector('.close-modal');
@@ -114,82 +57,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hardcoded Data Mapping for the demo (Normally comes from JSON/CMS)
   const projectData = {
-    "Handy AI": {
-      desc: "An immersive browser-based vision AI application utilizing MediaPipe machine learning. Tracks hand landmarks in real time with high-precision gesture recognition and zero-latency air drawing.",
-      tech: ["MediaPipe AI", "HTML5 Canvas", "Computer Vision", "Vanilla JS"],
-      url: "handy-ai.html"
-    },
-    "Kroma 3D": {
-      desc: "An interactive, real-time 3D product customizer built on Three.js and WebGL. Allows users to inspect high-fidelity geometry, alter PBR materials, rotate lighting environments, and render custom views.",
-      tech: ["Three.js", "WebGL", "GLSL Shaders", "CSS3 Glass"],
-      url: "3d-configurator/index.html"
-    },
-    "Synapse AI": {
-      desc: "A sleek, dark-mode conversational AI interface designed with liquid glassmorphism, responsive message threading, Markdown rendering, and code syntax highlighting.",
-      tech: ["JavaScript ES6+", "CSS Glassmorphism", "REST API", "Responsive UX"],
-      url: "ai-chat/index.html"
-    },
-    "NexusFi Terminal": {
-      desc: "A real-time financial cryptocurrency terminal featuring live market feeds, interactive candlestick charts, volatility metrics, and portfolio tracking.",
-      tech: ["Chart.js", "Canvas API", "CSS Grid", "Async / Await"],
-      url: "crypto-dash/index.html"
-    },
-    "Sonorus Player": {
-      desc: "A bespoke audiophile-grade web audio player featuring dynamic frequency visualizers, queue management, volume curves, and fluid playback animations.",
-      tech: ["Web Audio API", "HTML5 Audio", "Canvas Visualizer", "Vanilla JS"],
-      url: "music-player/index.html"
+    "Neon Air Writing": {
+      desc: "An innovative interactive web application that leverages AI and hand tracking to allow users to draw in the air. Real-time canvas rendering creates a magical neon writing experience.",
+      tech: ["HTML5 Canvas", "AI Hand Tracking", "JavaScript"],
+      url: "neon-air-writing/index.html"
     },
     "Digital QR Menu": {
-      desc: "A mobile-first, contactless digital dining experience designed for modern restaurants and cafes. Features instant filtering, dish customization, and cart management.",
-      tech: ["HTML5", "CSS3 Grid/Flexbox", "Vanilla JS", "Micro-interactions"],
+      desc: "A mobile-first, premium digital menu designed for cafes and restaurants. Features a sleek glassmorphous UI, fluid background animations, dynamic category filtering, and micro-interactions for adding items to the cart.",
+      tech: ["HTML5", "CSS3 Grid/Flexbox", "Vanilla JS"],
       url: "qr-menu/index.html"
     },
-    "Calculator Pro": {
-      desc: "A minimalist utility application with a bespoke neumorphic/glass interface. Handles multi-step arithmetic, percentage computations, and state memory with comprehensive error protection.",
-      tech: ["JavaScript ES6", "CSS Grid", "Neumorphism", "Event Delegation"],
-      url: "calculator/index.html"
-    },
-    "TaskFlow Minimal": {
-      desc: "An ultra-minimalist task management engine designed for peak productivity. Includes localStorage data persistence, priority tagging, and satisfying completion animations.",
-      tech: ["LocalStorage API", "DOM Manipulation", "CSS3 Transitions", "Vanilla JS"],
-      url: "to do list/index.html"
+    "Premium Cafe Site": {
+      desc: "A luxurious, premium cafe website featuring a dark espresso and gold aesthetic. Includes advanced interactions like a custom cursor, magnetic buttons, and parallax scrolling.",
+      tech: ["HTML5", "CSS3 Animations", "Vanilla JS"],
+      url: "cafe-website/index.html"
     },
     "Catch the Stars": {
-      desc: "A physics-based browser arcade game engineered to test player reflexes. Built with requestAnimationFrame for silky smooth 60fps canvas particle rendering.",
-      tech: ["HTML5 Canvas", "Physics Engine", "Vanilla JS", "Game Loop"],
+      desc: "A highly interactive, physics-based browser game designed to challenge players' timing and reflex speed. Meticulously crafted using requestAnimationFrame for 60fps performance.",
+      tech: ["HTML5 Canvas", "Vanilla JS", "CSS3 Animations"],
       url: "catch-the-stars-game/index.html"
     },
     "Scrolling Text": {
-      desc: "An experimental typography website demonstrating scroll-triggered 3D kinetic text distortion and smooth momentum physics without heavy third-party libraries.",
-      tech: ["JavaScript", "HTML5", "CSS Transforms", "Scroll Physics"],
+      desc: "An immersive, infinite-scrolling text experience that manipulates the DOM on scroll. Demonstrates advanced typography rendering and scroll-trigger methodologies without heavy libraries.",
+      tech: ["JavaScript", "HTML5", "CSS Transformations"],
       url: "scrolling-text-website/index.html"
     },
-    "AERIS Architecture": {
-      desc: "An editorial architectural showcase and luxury real estate portal featuring split-screen typography, interactive floor plans, and immersive gallery viewports.",
-      tech: ["HTML5", "Advanced CSS Grid", "Editorial Typography", "Responsive Design"],
-      url: "real-estate/index.html"
-    },
-    "Premium Cafe Site": {
-      desc: "A luxurious cafe website featuring an espresso and gold aesthetic. Integrates custom magnetic cursor physics, smooth parallax transitions, and online reservations.",
-      tech: ["HTML5", "CSS3 Animations", "Parallax Scroll", "Vanilla JS"],
-      url: "cafe-website/index.html"
+    "Calculator Pro": {
+      desc: "A luxurious utility application with a bespoke neumorphic/glass interface. Handles complex arithmetic operations smoothly with extensive input validation and error handling.",
+      tech: ["JavaScript ES6", "CSS Grid", "Event Delegation"],
+      url: "calculator/index.html"
     },
     "Furniture Design": {
-      desc: "A high-fashion e-commerce landing experience celebrating modern minimalist furniture. Features asymmetrical editorial grid layouts and curated collection showcases.",
-      tech: ["HTML5", "Advanced CSS Grid", "Editorial Layout", "Responsive Design"],
+      desc: "A high-end, visual e-commerce landing page focused on modern furniture. Built using CSS Grid to simulate complex, irregular layouts typical of high-fashion editorials.",
+      tech: ["HTML5", "Advanced CSS Grid", "Responsive Design"],
       url: "furniture site/demo3.0.html"
+    },
+    "Aura Estates": {
+      desc: "An architectural real estate landing page with a minimalist aesthetic. Features a stunning horizontal scrolling layout and high-definition imagery for premium properties.",
+      tech: ["GSAP", "HTML5", "CSS3 Flexbox", "JavaScript"],
+      url: "real-estate/index.html"
+    },
+    "Sonic Beats": {
+      desc: "An interactive music player featuring a rotating vinyl record animation, CSS audio visualizers, and a clean, user-friendly control interface.",
+      tech: ["HTML5 Audio API", "CSS3 Keyframes", "Vanilla JS"],
+      url: "music-player/index.html"
+    },
+    "3D Configurator": {
+      desc: "A WebGL-powered 3D product configurator using Three.js. Allows users to interact with a 3D model, change textures, and explore product details in real-time.",
+      tech: ["Three.js", "WebGL", "OrbitControls", "JavaScript"],
+      url: "3d-configurator/index.html"
+    },
+    "Synapse AI Chat": {
+      desc: "A futuristic AI chat interface with conversation history, code highlighting, and a sleek dark-mode design inspired by next-gen AI assistants.",
+      tech: ["JavaScript", "Highlight.js", "CSS3"],
+      url: "ai-chat/index.html"
+    },
+    "3D Floating Spheres": {
+      desc: "Premium Three.js experience with glass and aluminum spheres, mouse-reactive physics, and cinematic lighting — a pure visual showcase.",
+      tech: ["Three.js", "WebGL", "Tailwind CSS"],
+      url: "3d-spheres/index.html"
+    },
+    "Task Manager": {
+      desc: "A clean, minimal to-do list with add/delete/complete functionality and persistent task management for everyday productivity.",
+      tech: ["JavaScript", "HTML5", "CSS3"],
+      url: "to%20do%20list/index.html"
     }
   };
 
   if (modal) {
     projectCards.forEach(card => {
       card.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop routing from the anchor tag
-        
         const titleText = card.querySelector('.project-name').innerText;
         const data = projectData[titleText];
 
         if (data) {
+          e.preventDefault(); // Stop routing from the anchor tag
           modalTitle.innerText = titleText;
           modalDesc.innerText = data.desc;
           modalLink.href = data.url;
@@ -251,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
               // Animate in
               setTimeout(() => {
                 item.style.opacity = '1';
-                item.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+                item.style.transform = 'scale(1)';
               }, 50);
             } else {
               item.classList.add('hide');
@@ -293,6 +235,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const hiddenElements = document.querySelectorAll('.hidden');
   hiddenElements.forEach((el) => observer.observe(el));
+
+  /* --- Lazy Load Background Images --- */
+  const lazyBgElements = document.querySelectorAll('[data-bg]');
+  const lazyBgObserver = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.backgroundImage = el.getAttribute('data-bg');
+        el.removeAttribute('data-bg');
+        obs.unobserve(el);
+      }
+    });
+  }, { rootMargin: '50px 0px', threshold: 0.01 });
+
+  lazyBgElements.forEach(el => lazyBgObserver.observe(el));
 
   // Custom Cursor
   const cursor = document.querySelector('.custom-cursor');
@@ -408,9 +365,16 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Parallax Background --- */
   const parallaxBg = document.querySelector('.parallax-bg');
   if (parallaxBg) {
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      parallaxBg.style.transform = `scale(1.1) translateY(${scrolled * 0.4}px)`;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY;
+          parallaxBg.style.transform = `scale(1.1) translateY(${scrolled * 0.4}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
   }
 
@@ -423,8 +387,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetElement = document.getElementById(targetId);
       
       if (targetElement) {
-        const navbar = document.querySelector('.cinematic-navbar') || document.querySelector('.navbar');
-        const navHeight = navbar ? navbar.offsetHeight : 0;
+        const navHeight = document.querySelector('.navbar').offsetHeight;
         const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
         
         window.scrollTo({
@@ -435,44 +398,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* --- Navigation Arrows Logic --- */
-  const navArrows = document.querySelectorAll('.nav-arrow');
-  if (navArrows.length >= 2) {
-    const prevArrow = navArrows[0];
-    const nextArrow = navArrows[1];
-
-    prevArrow.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    nextArrow.addEventListener('click', () => {
-      const aboutSection = document.getElementById('about') || document.getElementById('projects');
-      if (aboutSection) {
-        const navbar = document.querySelector('.cinematic-navbar');
-        const navHeight = navbar ? navbar.offsetHeight : 0;
-        const targetPosition = aboutSection.getBoundingClientRect().top + window.scrollY - navHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  }
-
   /* --- Navbar Scroll Effect --- */
-  const navbarScroll = document.querySelector('.cinematic-navbar') || document.querySelector('.navbar');
-  if (navbarScroll) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbarScroll.classList.add('scrolled');
-      } else {
-        navbarScroll.classList.remove('scrolled');
-      }
-    });
-  }
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
 
   /* --- Current Year for Footer --- */
   const yearEl = document.getElementById('year');
@@ -480,190 +414,306 @@ document.addEventListener('DOMContentLoaded', () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  /* --- Advanced Project Card 3D Hover Parallax --- */
-  const projectCardsEffects = document.querySelectorAll('.project-card');
-  projectCardsEffects.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -8; // Max rotation 8deg
-      const rotateY = ((x - centerX) / centerX) * 8;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-      card.style.transition = 'transform 0.5s ease';
-    });
-    
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'none';
-    });
-  });
-
-  /* --- Interactive 3D Background (Three.js) --- */
-  const canvas = document.getElementById('hero-canvas');
-  if (canvas && typeof THREE !== 'undefined') {
+  /* --- Interactive 3D Canvas Background --- */
+  const canvasContainer = document.getElementById('canvas-container');
+  if (canvasContainer && window.THREE) {
     const scene = new THREE.Scene();
-    const heroEl = document.getElementById('hero');
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / heroEl.offsetHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    scene.fog = new THREE.FogExp2(0x03030b, 0.04);
+
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 20;
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+    const isMobile = window.innerWidth <= 768;
+    const dpr = isMobile ? Math.min(window.devicePixelRatio, 1.0) : Math.min(window.devicePixelRatio, 2.0);
+    renderer.setPixelRatio(dpr);
     
-    renderer.setSize(window.innerWidth, heroEl.offsetHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
 
-    // Floating Geometries
-    const geometries = [
-      new THREE.IcosahedronGeometry(1, 0),
-      new THREE.OctahedronGeometry(1, 0),
-      new THREE.TetrahedronGeometry(1, 0)
-    ];
-    
-    let isLight = document.body.classList.contains('light-theme');
-    
-    const materialGold = new THREE.MeshPhysicalMaterial({ 
-      color: isLight ? 0xB8860B : 0xD4AF37,
-      metalness: 0.8,
-      roughness: 0.2,
-      transparent: true,
-      opacity: 0.8,
-      wireframe: true
-    });
-    
-    const materialGlass = new THREE.MeshPhysicalMaterial({
-      color: isLight ? 0xffffff : 0x050505,
-      metalness: 0.1,
-      roughness: 0.1,
-      transmission: 0.9,
-      thickness: 1.0,
-      transparent: true,
-      opacity: 0.6
-    });
+    canvasContainer.appendChild(renderer.domElement);
 
-    const particles = new THREE.Group();
-    scene.add(particles);
-
-    const particleCount = window.innerWidth < 768 ? 15 : 35;
-
-    for (let i = 0; i < particleCount; i++) {
-      const geometry = geometries[Math.floor(Math.random() * geometries.length)];
-      const material = Math.random() > 0.5 ? materialGold : materialGlass;
-      const mesh = new THREE.Mesh(geometry, material);
-      
-      mesh.position.x = (Math.random() - 0.5) * 40;
-      mesh.position.y = (Math.random() - 0.5) * 40;
-      mesh.position.z = (Math.random() - 0.5) * 20 - 10;
-      
-      mesh.rotation.x = Math.random() * Math.PI;
-      mesh.rotation.y = Math.random() * Math.PI;
-      
-      const scale = Math.random() * 0.8 + 0.2;
-      mesh.scale.set(scale, scale, scale);
-      
-      // Custom animation data
-      mesh.userData = {
-        rx: (Math.random() - 0.5) * 0.015,
-        ry: (Math.random() - 0.5) * 0.015,
-        yOffset: Math.random() * Math.PI * 2,
-        yPos: mesh.position.y
-      };
-      
-      particles.add(mesh);
-    }
-
-    // Lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
-    
-    const pointLight = new THREE.PointLight(0xD4AF37, 1);
-    pointLight.position.set(5, 5, 5);
+
+    const pointLight = new THREE.PointLight(0xffffff, 2, 100);
+    pointLight.position.set(10, 20, 10);
+    pointLight.castShadow = true;
+    pointLight.shadow.mapSize.width = 2048;
+    pointLight.shadow.mapSize.height = 2048;
+    pointLight.shadow.bias = -0.0005;
+    pointLight.shadow.radius = 4;
     scene.add(pointLight);
 
-    camera.position.z = 15;
+    const blueLight = new THREE.PointLight(0x0066ff, 3, 50);
+    blueLight.position.set(-15, -10, -10);
+    scene.add(blueLight);
 
-    // Mouse Interaction
-    let mouseX = 0;
-    let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
+    const purpleLight = new THREE.PointLight(0xaa00ff, 2, 50);
+    purpleLight.position.set(15, -15, 5);
+    scene.add(purpleLight);
 
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = heroEl.offsetHeight / 2;
-
-    document.addEventListener('mousemove', (event) => {
-      mouseX = (event.clientX - windowHalfX);
-      mouseY = (event.clientY - windowHalfY);
+    const aluminumMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0xe0e0e0,
+        metalness: 1.0,
+        roughness: 0.1,
+        clearcoat: 0.5,
+        clearcoatRoughness: 0.2
     });
 
-    // Theme Mutation Observer to update colors
-    const bodyObserver = new MutationObserver(() => {
-      const lightMode = document.body.classList.contains('light-theme');
-      materialGold.color.setHex(lightMode ? 0xB8860B : 0xD4AF37);
-      materialGlass.color.setHex(lightMode ? 0xffffff : 0x050505);
+    const glassMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0xffffff,
+        metalness: 0.1,
+        roughness: 0.05,
+        transmission: 0.95,
+        ior: 1.5,
+        thickness: 1.0,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.05
     });
-    bodyObserver.observe(document.body, { attributes: true, attributeFilter: ['class'] });
 
-    const clock = new THREE.Clock();
+    const sphereGeometry = new THREE.SphereGeometry(1, 64, 64);
+    const spheres = [];
+    const numSpheres = isMobile ? 12 : 25;
 
-    function animate() {
-      requestAnimationFrame(animate);
-      const time = clock.getElapsedTime();
-
-      targetX = mouseX * 0.001;
-      targetY = mouseY * 0.001;
-
-      particles.rotation.y += 0.05 * (targetX - particles.rotation.y);
-      particles.rotation.x += 0.05 * (targetY - particles.rotation.x);
-
-      particles.children.forEach(mesh => {
-        mesh.rotation.x += mesh.userData.rx;
-        mesh.rotation.y += mesh.userData.ry;
-        mesh.position.y = mesh.userData.yPos + Math.sin(time + mesh.userData.yOffset) * 0.5;
-      });
-
-      renderer.render(scene, camera);
+    for (let i = 0; i < numSpheres; i++) {
+        const isGlass = Math.random() > 0.5;
+        const material = isGlass ? glassMaterial : aluminumMaterial;
+        const sphere = new THREE.Mesh(sphereGeometry, material);
+        
+        sphere.position.x = (Math.random() - 0.5) * 35;
+        sphere.position.y = (Math.random() - 0.5) * 20;
+        sphere.position.z = (Math.random() - 0.5) * 20;
+        
+        const scale = Math.random() * 1.5 + 0.5;
+        sphere.scale.set(scale, scale, scale);
+        
+        sphere.castShadow = true;
+        sphere.receiveShadow = true;
+        scene.add(sphere);
+        
+        spheres.push({
+            mesh: sphere,
+            baseX: sphere.position.x,
+            baseY: sphere.position.y,
+            baseZ: sphere.position.z,
+            timeOffset: Math.random() * Math.PI * 2,
+            speed: Math.random() * 0.5 + 0.2,
+            velocity: new THREE.Vector3(0, 0, 0)
+        });
     }
 
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / heroEl.offsetHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, heroEl.offsetHeight);
+    const mouse = new THREE.Vector2(2, 2);
+    let windowHalfX = window.innerWidth / 2;
+    let windowHalfY = window.innerHeight / 2;
+
+    document.addEventListener('mousemove', (event) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     });
 
+    const raycaster = new THREE.Raycaster();
+    const plane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+
+    const clock = new THREE.Clock();
+    let time = 0;
+
+    function resizeCanvas() {
+        const heroEl = document.getElementById('hero');
+        const height = heroEl ? heroEl.offsetHeight : window.innerHeight;
+        const width = window.innerWidth;
+        
+        windowHalfX = width / 2;
+        windowHalfY = height / 2;
+        
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        
+        renderer.setSize(width, height);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        const delta = clock.getDelta();
+        time += delta;
+        
+        camera.position.x += (mouse.x * 3 - camera.position.x) * 0.05;
+        camera.position.y += (mouse.y * 3 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+        
+        raycaster.setFromCamera(mouse, camera);
+        const intersectPoint = new THREE.Vector3();
+        raycaster.ray.intersectPlane(plane, intersectPoint);
+
+        spheres.forEach(obj => {
+            const floatY = Math.sin(time * obj.speed + obj.timeOffset) * 2.0; 
+            const spherePos = obj.mesh.position;
+            const projMouse = intersectPoint.clone();
+            projMouse.z = spherePos.z;
+            
+            const dist = projMouse.distanceTo(spherePos);
+            const repelRadius = 12;
+            const repelForce = 5.0;
+            
+            if (dist < repelRadius) {
+                const dir = new THREE.Vector3().subVectors(spherePos, projMouse).normalize();
+                const force = (repelRadius - dist) * repelForce * delta;
+                obj.velocity.x += dir.x * force;
+                obj.velocity.y += dir.y * force;
+                obj.velocity.z += dir.z * force * 0.5;
+            }
+            
+            obj.velocity.multiplyScalar(0.96);
+            
+            const returnForceX = (obj.baseX - spherePos.x) * 0.005;
+            const returnForceZ = (obj.baseZ - spherePos.z) * 0.005;
+            const targetY = obj.baseY + floatY;
+            const returnForceY = (targetY - spherePos.y) * 0.005;
+            
+            obj.velocity.x += returnForceX;
+            obj.velocity.y += returnForceY;
+            obj.velocity.z += returnForceZ;
+            
+            obj.mesh.position.add(obj.velocity);
+            
+            obj.mesh.rotation.x += 0.005;
+            obj.mesh.rotation.y += 0.008;
+        });
+        
+        renderer.render(scene, camera);
+    }
     animate();
   }
 
-  /* --- Seamless Page Transitions --- */
-  const modalLinkReal = document.getElementById('modal-link');
-  if (modalLinkReal && preloader) {
-    modalLinkReal.addEventListener('click', (e) => {
-      e.preventDefault();
-      const targetUrl = modalLinkReal.getAttribute('href');
-      if (targetUrl && targetUrl !== '#') {
-        preloader.style.opacity = '1';
-        preloader.style.visibility = 'visible';
-        setTimeout(() => {
-          window.location.href = targetUrl;
-        }, 800);
+  // --- Antigravity Parallax Engine --- //
+  const layers = document.querySelectorAll('.parallax-layer');
+  const shapes = document.querySelectorAll('.crystalline-shape');
+  let pmouseX = 0, pmouseY = 0;
+  let currentParallaxX = 0, currentParallaxY = 0;
+  let shapeTime = 0;
+
+  if (window.innerWidth > 768) {
+      document.addEventListener('mousemove', (e) => {
+          pmouseX = (e.clientX - window.innerWidth / 2) / (window.innerWidth / 2);
+          pmouseY = (e.clientY - window.innerHeight / 2) / (window.innerHeight / 2);
+      });
+  }
+
+  function animateAntigravity() {
+      requestAnimationFrame(animateAntigravity);
+      shapeTime += 0.01;
+      
+      currentParallaxX += (pmouseX - currentParallaxX) * 0.05;
+      currentParallaxY += (pmouseY - currentParallaxY) * 0.05;
+      
+      // Move layers
+      layers.forEach(layer => {
+          const depth = parseFloat(layer.getAttribute('data-depth')) || 0.1;
+          const moveX = currentParallaxX * depth * -100;
+          const moveY = currentParallaxY * depth * -100;
+          layer.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+      });
+      
+      // Float shapes
+      shapes.forEach((shape, index) => {
+          const floatY = Math.sin(shapeTime + index * 5) * 15;
+          const floatX = Math.cos(shapeTime + index * 3) * 10;
+          const rot = Math.sin(shapeTime + index) * 5;
+          shape.style.transform = `translate3d(${floatX}px, ${floatY}px, 0) rotate(${rot}deg)`;
+      });
+  }
+  animateAntigravity();
+
+  // --- Cinematic Dust / Bokeh Engine --- //
+  const dustCanvas = document.getElementById('bokeh-dust-canvas');
+  if (dustCanvas) {
+      const dCtx = dustCanvas.getContext('2d');
+      let dWidth, dHeight;
+      let dustParticles = [];
+
+      function initDust() {
+          dWidth = window.innerWidth;
+          dHeight = window.innerHeight;
+          dustCanvas.width = dWidth;
+          dustCanvas.height = dHeight;
+          
+          dustParticles = [];
+          const count = window.innerWidth <= 768 ? 20 : 50;
+          for (let i = 0; i < count; i++) {
+              dustParticles.push({
+                  x: Math.random() * dWidth,
+                  y: Math.random() * dHeight,
+                  radius: Math.random() * 4 + 1,
+                  vx: (Math.random() - 0.5) * 0.3,
+                  vy: (Math.random() - 0.5) * 0.3,
+                  alpha: Math.random() * 0.5 + 0.1,
+                  phase: Math.random() * Math.PI * 2
+              });
+          }
       }
-    });
+
+      function animateDust() {
+          requestAnimationFrame(animateDust);
+          dCtx.clearRect(0, 0, dWidth, dHeight);
+          
+          dustParticles.forEach(p => {
+              p.x += p.vx + (currentParallaxX * 0.5);
+              p.y += p.vy + (currentParallaxY * 0.5);
+              p.phase += 0.02;
+              
+              const currentAlpha = p.alpha + Math.sin(p.phase) * 0.1;
+
+              if (p.x < 0) p.x = dWidth;
+              if (p.x > dWidth) p.x = 0;
+              if (p.y < 0) p.y = dHeight;
+              if (p.y > dHeight) p.y = 0;
+
+              dCtx.beginPath();
+              dCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+              dCtx.fillStyle = `rgba(212, 175, 55, ${Math.max(0, currentAlpha)})`;
+              dCtx.shadowBlur = 15;
+              dCtx.shadowColor = 'rgba(212, 175, 55, 0.8)';
+              dCtx.fill();
+          });
+      }
+
+      window.addEventListener('resize', initDust);
+      initDust();
+      animateDust();
   }
 
-  window.addEventListener('pageshow', (e) => {
-    if (e.persisted && preloader) {
-      preloader.style.opacity = '0';
-      preloader.style.visibility = 'hidden';
-    }
-  });
+  // --- Chronos Motion Blur Engine (Scroll Velocity) --- //
+  let lastScrollY = window.scrollY;
+  const blurElements = document.querySelectorAll('.glass-hero-card, .project-card, .expertise-card');
 
-  /* --- Initialize Lucide Icons --- */
-  if (typeof lucide !== 'undefined') {
-    lucide.createIcons();
+  function updateMotionBlur() {
+      const currentScrollY = window.scrollY;
+      const scrollDiff = Math.abs(currentScrollY - lastScrollY);
+      
+      const targetBlur = Math.min(scrollDiff * 0.1, 15);
+      
+      blurElements.forEach(el => {
+          if (targetBlur > 0.5) {
+              const direction = currentScrollY > lastScrollY ? 1 : -1;
+              el.style.transform = `translateY(${scrollDiff * direction * 0.2}px)`;
+              el.style.filter = `blur(${targetBlur}px)`;
+              // Ensure transitions do not fight the frame updates
+              el.style.transition = 'none'; 
+          } else {
+              el.style.transform = 'translateY(0)';
+              el.style.filter = 'none';
+              // Restore hover transitions
+              el.style.transition = 'transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease';
+          }
+      });
+      
+      lastScrollY = currentScrollY;
+      requestAnimationFrame(updateMotionBlur);
   }
+  updateMotionBlur();
+
 });

@@ -57,6 +57,7 @@
           <i class="fa-solid fa-chevron-down"></i>
         </div>
         <div class="header-actions">
+          <i class="fa-solid fa-gear" id="settings-btn" title="Settings"></i>
           <i class="fa-solid fa-share-nodes"></i>
         </div>
       </header>
@@ -115,6 +116,41 @@
       </div>
 
     </main>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>API Settings</h2>
+      <p class="modal-desc">Configure your OpenAI API key for full AI functionality.</p>
+      
+      <div class="form-group">
+        <label for="api-key">OpenAI API Key</label>
+        <input type="password" id="api-key" placeholder="sk-..." />
+        <small>Get your API key from <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></small>
+      </div>
+      
+      <div class="form-group">
+        <label for="model-select">AI Model</label>
+        <select id="model-select">
+          <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Fast)</option>
+          <option value="gpt-4">GPT-4 (Advanced)</option>
+          <option value="gpt-4-turbo-preview">GPT-4 Turbo (Latest)</option>
+        </select>
+      </div>
+      
+      <button id="save-settings" class="save-btn">Save Settings</button>
+      
+      <div class="api-info">
+        <p><strong>How it works:</strong></p>
+        <ul>
+          <li>Without API key: Uses demo mode with simulated responses</li>
+          <li>With API key: Connects to real OpenAI models</li>
+          <li>Your API key is stored locally and never sent to any server except OpenAI</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>

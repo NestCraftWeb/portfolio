@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chand Chougule | Spatial Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ============================================================
+       SPATIAL PORTFOLIO — Zero-gravity 3D card universe
+       ============================================================ */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #030712;
+      --bg2: #0a0f1e;
+      --accent: #818cf8;       /* Indigo-400 */
+      --accent2: #6366f1;      /* Indigo-500 */
+      --accent-glow: rgba(129,140,248,0.35);
+      --gold: #fbbf24;
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --card-bg: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.08);
+      --radius: 24px;
+      --font: 'Outfit', 'Space Grotesk', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Spatial Background ---- */
+    .spatial-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(99,102,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(139,92,246,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(251,191,36,0.04) 0%, transparent 40%),
+        var(--bg);
+    }
+
+    .spatial-bg canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5;
+    }
+
+    /* ---- Grid Lines (subtle perspective grid) ---- */
+    .grid-floor {
+      position: fixed; bottom: 0; left: 0; right: 0; height: 45vh;
+      background:
+        linear-gradient(to top, rgba(99,102,241,0.06) 1px, transparent 1px),
+        linear-gradient(to right, rgba(99,102,241,0.04) 1px, transparent 1px);
+      background-size: 80px 60px;
+      transform: perspective(600px) rotateX(55deg);
+      transform-origin: bottom center;
+      mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+      z-index: 0; pointer-events: none;
+    }
+
+    /* ---- Navigation ---- */
+    .spatial-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(3,7,18,0.6);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.4rem; font-weight: 700; letter-spacing: 2px;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; font-size: 0.85rem;
+      text-transform: uppercase; letter-spacing: 2px; font-weight: 500;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    .nav-links a:hover { color: #fff; text-shadow: 0 0 20px var(--accent-glow); }
+
+    @media (max-width: 768px) {
+      .spatial-nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.75rem; letter-spacing: 1px; }
+    }
+
+    /* ---- Hero Section ---- */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      padding: 8rem 2rem 4rem;
+      perspective: 1200px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1.25rem; border-radius: 999px;
+      background: var(--glass); border: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--accent); letter-spacing: 2px;
+      text-transform: uppercase; font-weight: 500;
+      margin-bottom: 2rem;
+      animation: float-badge 3s ease-in-out infinite;
+    }
+    .hero-badge i { font-size: 0.65rem; }
+
+    @keyframes float-badge {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 6rem); font-weight: 200;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 50%, var(--accent) 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      line-height: 1.1; margin-bottom: 1.5rem;
+      animation: title-glow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes title-glow {
+      0% { filter: drop-shadow(0 0 20px rgba(129,140,248,0.0)); }
+      100% { filter: drop-shadow(0 0 40px rgba(129,140,248,0.3)); }
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem; color: var(--text-muted); font-weight: 300;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      margin-bottom: 3rem; min-height: 1.5em;
+    }
+
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 2.5rem; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #fff; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; text-transform: uppercase; letter-spacing: 2px;
+      transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+      box-shadow: 0 0 40px var(--accent-glow), inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    .hero-cta:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 0 60px var(--accent-glow), 0 20px 40px rgba(99,102,241,0.3);
+    }
+
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+    }
+    .scroll-hint span {
+      font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .scroll-hint .bar {
+      width: 1px; height: 50px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%,100% { opacity: 0.3; transform: scaleY(0.5); }
+      50% { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ---- Spatial Section Container ---- */
+    .spatial-section {
+      position: relative; z-index: 1;
+      padding: 6rem 2rem;
+      perspective: 1500px;
+    }
+
+    .section-header {
+      text-align: center; margin-bottom: 4rem;
+    }
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem); font-weight: 300;
+      letter-spacing: 0.06em; color: #fff;
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      font-size: 1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ---- Category Filters ---- */
+    .filters {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 0.75rem; margin-bottom: 3.5rem;
+    }
+
+    .filter-pill {
+      padding: 0.5rem 1.5rem; border-radius: 999px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text-muted); font-family: var(--font);
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .filter-pill:hover { border-color: var(--accent); color: var(--text); }
+    .filter-pill.active {
+      background: var(--accent); color: #fff; border-color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* ---- Spatial Project Grid ---- */
+    .spatial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+      max-width: 1400px; margin: 0 auto;
+      transform-style: preserve-3d;
+    }
+
+    @media (max-width: 480px) {
+      .spatial-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---- Spatial Project Card ---- */
+    .spatial-card {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.16,1,0.3,1);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .spatial-card:hover {
+      transform: translateY(-12px) rotateX(2deg) rotateY(-2deg) scale(1.02);
+      border-color: rgba(129,140,248,0.3);
+      box-shadow:
+        0 30px 60px rgba(0,0,0,0.5),
+        0 0 50px var(--accent-glow),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    /* Depth glow behind card */
+    .spatial-card::before {
+      content: ''; position: absolute; inset: -2px;
+      border-radius: calc(var(--radius) + 2px);
+      background: linear-gradient(135deg, var(--accent), transparent 40%, transparent 60%, rgba(139,92,246,0.3));
+      z-index: -1; opacity: 0;
+      transition: opacity 0.5s ease;
+      filter: blur(15px);
+    }
+    .spatial-card:hover::before { opacity: 0.5; }
+
+    .card-image {
+      position: relative; height: 220px; overflow: hidden;
+    }
+
+    .card-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease;
+      filter: brightness(0.7) saturate(0.8);
+    }
+
+    .spatial-card:hover .card-image img {
+      transform: scale(1.08);
+      filter: brightness(0.9) saturate(1);
+    }
+
+    /* Overlay gradient on image */
+    .card-image::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--bg) 0%, rgba(3,7,18,0.4) 40%, transparent 100%);
+    }
+
+    /* Category tag floating on image */
+    .card-tag {
+      position: absolute; top: 1rem; left: 1rem; z-index: 2;
+      padding: 0.35rem 1rem; border-radius: 999px;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.65rem; text-transform: uppercase;
+      letter-spacing: 2px; color: var(--accent); font-weight: 600;
+    }
+
+    /* NEW badge */
+    .card-new {
+      position: absolute; top: 1rem; right: 1rem; z-index: 2;
+      padding: 0.3rem 0.8rem; border-radius: 999px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      font-size: 0.6rem; text-transform: uppercase;
+      letter-spacing: 2px; color: #fff; font-weight: 700;
+      animation: pulse-new 2s ease-in-out infinite;
+    }
+    @keyframes pulse-new {
+      0%,100% { box-shadow: 0 0 10px rgba(245,158,11,0.3); }
+      50% { box-shadow: 0 0 25px rgba(245,158,11,0.6); }
+    }
+
+    .card-body {
+      padding: 1.5rem 1.75rem 1.75rem; flex: 1;
+      display: flex; flex-direction: column;
+    }
+
+    .card-title {
+      font-size: 1.4rem; font-weight: 600; color: #fff;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+    .spatial-card:hover .card-title { color: var(--accent); }
+
+    .card-desc {
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;
+      margin-bottom: 1.25rem; flex: 1;
+    }
+
+    .card-tech {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem;
+    }
+    .tech-chip {
+      padding: 0.25rem 0.75rem; border-radius: 999px;
+      background: rgba(129,140,248,0.08); border: 1px solid rgba(129,140,248,0.15);
+      font-size: 0.7rem; color: var(--accent); letter-spacing: 0.5px;
+    }
+
+    .card-action {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--text-muted); font-weight: 500;
+      transition: color 0.3s, gap 0.3s;
+    }
+    .spatial-card:hover .card-action {
+      color: var(--accent); gap: 0.85rem;
+    }
+
+    /* ---- Skills Orbit Section ---- */
+    .skills-orbit {
+      position: relative; z-index: 1;
+      padding: 6rem 2rem;
+    }
+
+    .skills-row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 1.25rem; max-width: 900px; margin: 0 auto;
+    }
+
+    .skill-node {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.75rem 1.5rem; border-radius: 999px;
+      background: var(--glass); border: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--text);
+      transition: all 0.3s ease;
+    }
+    .skill-node:hover {
+      border-color: var(--accent); background: rgba(129,140,248,0.08);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--accent-glow);
+    }
+    .skill-node i { color: var(--accent); font-size: 1.1rem; }
+
+    /* ---- Contact Section ---- */
+    .contact-section {
+      position: relative; z-index: 1;
+      padding: 6rem 2rem 4rem; text-align: center;
+    }
+
+    .contact-card {
+      max-width: 600px; margin: 0 auto; padding: 3rem;
+      border-radius: var(--radius);
+      background: var(--glass); border: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+    }
+
+    .contact-card h2 {
+      font-size: 2rem; font-weight: 300; margin-bottom: 1rem; color: #fff;
+    }
+    .contact-card p {
+      color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem;
+    }
+
+    .contact-links {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .contact-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.75rem; border-radius: 999px;
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text); text-decoration: none; font-size: 0.85rem;
+      font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+    .contact-btn:hover {
+      border-color: var(--accent); color: var(--accent);
+      box-shadow: 0 0 20px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    /* ---- Footer ---- */
+    .spatial-footer {
+      position: relative; z-index: 1;
+      padding: 2rem; text-align: center;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+
+    /* ---- Scroll Reveal ---- */
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* Stagger children */
+    .reveal-stagger .spatial-card { opacity: 0; transform: translateY(30px); }
+    .reveal-stagger.visible .spatial-card {
+      opacity: 1; transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    /* ---- Floating Particles (CSS-only) ---- */
+    .particle {
+      position: fixed; border-radius: 50%; pointer-events: none; z-index: 0;
+      animation: drift linear infinite;
+    }
+    @keyframes drift {
+      0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-10vh) translateX(var(--dx)) scale(1); opacity: 0; }
+    }
+
+    /* ---- Back to Original Portfolio Link ---- */
+    .back-link {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 100;
+      padding: 0.6rem 1.25rem; border-radius: 999px;
+      background: var(--glass); border: 1px solid var(--border);
+      backdrop-filter: blur(15px); color: var(--text-muted);
+      text-decoration: none; font-size: 0.75rem; letter-spacing: 1px;
+      text-transform: uppercase; transition: all 0.3s;
+    }
+    .back-link:hover {
+      border-color: var(--accent); color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Spatial Background -->
+  <div class="spatial-bg">
+    <canvas id="stars-canvas"></canvas>
+  </div>
+  <div class="grid-floor"></div>
+
+  <!-- CSS Particles -->
+  <div id="particles-container"></div>
+
+  <!-- Navigation -->
+  <nav class="spatial-nav">
+    <div class="nav-logo">CC.</div>
+    <ul class="nav-links">
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-badge"><i class="fas fa-circle"></i> Spatial Portfolio 2024</div>
+    <h1>Chand<br>Chougule</h1>
+    <p class="hero-subtitle" id="typed-text"></p>
+    <a href="#projects" class="hero-cta">
+      Explore Projects <i class="fas fa-arrow-down"></i>
+    </a>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="bar"></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="spatial-section">
+    <div class="section-header reveal">
+      <h2>Selected Works</h2>
+      <p>A curated collection of web experiences, interactive games, and creative experiments.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters reveal">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="web-app">Web Apps</button>
+      <button class="filter-pill" data-filter="landing">Landing Pages</button>
+      <button class="filter-pill" data-filter="interactive">Interactive</button>
+    </div>
+
+    <!-- Spatial Grid -->
+    <div class="spatial-grid reveal-stagger" id="project-grid">
+
+      <!-- NEW: Synapse AI Chat -->
+      <a href="../ai-chat/index.html" class="spatial-card" data-cat="web-app" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2600&auto=format&fit=crop" alt="Synapse AI Chat">
+          <span class="card-tag">AI Web App</span>
+          <span class="card-new">New</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Synapse AI Chat</h3>
+          <p class="card-desc">A futuristic AI chat interface with conversation history, code highlighting, and a sleek dark-mode design inspired by next-gen AI assistants.</p>
+          <div class="card-tech">
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">Highlight.js</span>
+            <span class="tech-chip">CSS3</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- NEW: 3D Floating Spheres -->
+      <a href="../3d-spheres/index.html" class="spatial-card" data-cat="interactive" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2600&auto=format&fit=crop" alt="3D Floating Spheres">
+          <span class="card-tag">WebGL Experience</span>
+          <span class="card-new">New</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">3D Floating Spheres</h3>
+          <p class="card-desc">Premium Three.js experience with glass and aluminum spheres, mouse-reactive physics, and cinematic lighting — a pure visual showcase.</p>
+          <div class="card-tech">
+            <span class="tech-chip">Three.js</span>
+            <span class="tech-chip">WebGL</span>
+            <span class="tech-chip">Tailwind</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- NEW: To-Do List -->
+      <a href="../to%20do%20list/index.html" class="spatial-card" data-cat="web-app" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=2600&auto=format&fit=crop" alt="To-Do List">
+          <span class="card-tag">Utility App</span>
+          <span class="card-new">New</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Task Manager</h3>
+          <p class="card-desc">Clean, minimal to-do list with add/delete/complete functionality and persistent task management for everyday productivity.</p>
+          <div class="card-tech">
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">HTML5</span>
+            <span class="tech-chip">CSS3</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Digital QR Menu -->
+      <a href="../qr-menu/index.html" class="spatial-card" data-cat="web-app" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=2600&auto=format&fit=crop" alt="Digital QR Menu">
+          <span class="card-tag">Mobile Web App</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Digital QR Menu</h3>
+          <p class="card-desc">Streamlined cafe ordering with a zero-friction mobile experience. Glassmorphic UI with fluid category filtering.</p>
+          <div class="card-tech">
+            <span class="tech-chip">HTML5</span>
+            <span class="tech-chip">CSS Grid</span>
+            <span class="tech-chip">Vanilla JS</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Neon Air Writing -->
+      <a href="../neon-air-writing/index.html" class="spatial-card" data-cat="interactive" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2600&auto=format&fit=crop" alt="Neon Air Writing">
+          <span class="card-tag">AI Interactive</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Neon Air Writing</h3>
+          <p class="card-desc">AI hand-tracking lets you draw in the air with real-time neon canvas rendering. Pioneering computer vision integration.</p>
+          <div class="card-tech">
+            <span class="tech-chip">Canvas</span>
+            <span class="tech-chip">AI Hand Tracking</span>
+            <span class="tech-chip">JavaScript</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Premium Cafe Site -->
+      <a href="../cafe-website/index.html" class="spatial-card" data-cat="landing" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=2600&auto=format&fit=crop" alt="Premium Cafe Site">
+          <span class="card-tag">Premium Web</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Premium Cafe Site</h3>
+          <p class="card-desc">Dark espresso-and-gold aesthetic with custom cursor, magnetic buttons, and parallax scrolling for elevated brand perception.</p>
+          <div class="card-tech">
+            <span class="tech-chip">HTML5</span>
+            <span class="tech-chip">CSS Animations</span>
+            <span class="tech-chip">Vanilla JS</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Catch the Stars -->
+      <a href="../catch-the-stars-game/index.html" class="spatial-card" data-cat="interactive" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=2600&auto=format&fit=crop" alt="Catch the Stars">
+          <span class="card-tag">Game</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Catch the Stars</h3>
+          <p class="card-desc">A 60fps physics-based browser game that challenges reflexes with star-catching mechanics and dynamic difficulty.</p>
+          <div class="card-tech">
+            <span class="tech-chip">Canvas</span>
+            <span class="tech-chip">Game Physics</span>
+            <span class="tech-chip">rAF</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Scrolling Text -->
+      <a href="../scrolling-text-website/index.html" class="spatial-card" data-cat="landing" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2600&auto=format&fit=crop" alt="Scrolling Text">
+          <span class="card-tag">Web Experience</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Scrolling Text</h3>
+          <p class="card-desc">Infinite-scrolling typography experience that manipulates DOM on scroll with advanced text rendering methodologies.</p>
+          <div class="card-tech">
+            <span class="tech-chip">JavaScript</span>
+            <span class="tech-chip">CSS Transforms</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Calculator Pro -->
+      <a href="../calculator/index.html" class="spatial-card" data-cat="web-app" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1587145820266-a5951ee6f620?q=80&w=2600&auto=format&fit=crop" alt="Calculator Pro">
+          <span class="card-tag">Utility</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Calculator Pro</h3>
+          <p class="card-desc">Luxurious neumorphic calculator with complex arithmetic, input validation, and bespoke glass interface design.</p>
+          <div class="card-tech">
+            <span class="tech-chip">JS ES6</span>
+            <span class="tech-chip">CSS Grid</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Furniture Design -->
+      <a href="../furniture%20site/demo3.0.html" class="spatial-card" data-cat="landing" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2600&auto=format&fit=crop" alt="Furniture Design">
+          <span class="card-tag">E-Commerce</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Furniture Design</h3>
+          <p class="card-desc">High-end visual e-commerce landing page with luxury visual merchandising using complex irregular CSS Grid layouts.</p>
+          <div class="card-tech">
+            <span class="tech-chip">CSS Grid</span>
+            <span class="tech-chip">Responsive</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Aura Estates -->
+      <a href="../real-estate/index.html" class="spatial-card" data-cat="landing" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2600&auto=format&fit=crop" alt="Aura Estates">
+          <span class="card-tag">Architecture UX</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Aura Estates</h3>
+          <p class="card-desc">Minimalist real estate landing with horizontal scrolling layout and high-definition imagery for premium properties.</p>
+          <div class="card-tech">
+            <span class="tech-chip">GSAP</span>
+            <span class="tech-chip">Flexbox</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- Sonic Beats -->
+      <a href="../music-player/index.html" class="spatial-card" data-cat="web-app" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2600&auto=format&fit=crop" alt="Sonic Beats">
+          <span class="card-tag">Interactive Audio</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Sonic Beats</h3>
+          <p class="card-desc">Interactive music player with rotating vinyl animation, CSS audio visualizers, and clean user-friendly controls.</p>
+          <div class="card-tech">
+            <span class="tech-chip">Web Audio API</span>
+            <span class="tech-chip">CSS Keyframes</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 3D Configurator -->
+      <a href="../3d-configurator/index.html" class="spatial-card" data-cat="interactive" target="_blank">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1633167606207-d840b5070fc2?q=80&w=2600&auto=format&fit=crop" alt="3D Configurator">
+          <span class="card-tag">WebGL</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">3D Configurator</h3>
+          <p class="card-desc">WebGL-powered product configurator using Three.js for real-time immersive customization and texture swapping.</p>
+          <div class="card-tech">
+            <span class="tech-chip">Three.js</span>
+            <span class="tech-chip">WebGL</span>
+            <span class="tech-chip">OrbitControls</span>
+          </div>
+          <span class="card-action">View Project <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-orbit">
+    <div class="section-header reveal">
+      <h2>Technical Stack</h2>
+      <p>Tools and technologies I use to build premium digital experiences.</p>
+    </div>
+    <div class="skills-row reveal">
+      <div class="skill-node"><i class="fab fa-html5"></i> HTML5</div>
+      <div class="skill-node"><i class="fab fa-css3-alt"></i> CSS3 / SCSS</div>
+      <div class="skill-node"><i class="fab fa-js"></i> JavaScript ES6+</div>
+      <div class="skill-node"><i class="fab fa-react"></i> React</div>
+      <div class="skill-node"><i class="fas fa-cube"></i> Three.js / WebGL</div>
+      <div class="skill-node"><i class="fas fa-wand-magic-sparkles"></i> GSAP</div>
+      <div class="skill-node"><i class="fab fa-python"></i> Python</div>
+      <div class="skill-node"><i class="fab fa-git-alt"></i> Git</div>
+      <div class="skill-node"><i class="fas fa-paint-brush"></i> UI/UX Design</div>
+      <div class="skill-node"><i class="fas fa-bolt"></i> Performance</div>
+      <div class="skill-node"><i class="fas fa-mobile-alt"></i> Responsive</div>
+      <div class="skill-node"><i class="fas fa-brain"></i> AI Integration</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <div class="contact-card reveal">
+      <h2>Let's Create Together</h2>
+      <p>Available for exclusive projects and visionary collaborations.</p>
+      <div class="contact-links">
+        <a href="https://wa.me/917249512106" target="_blank" class="contact-btn">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://www.instagram.com/chand_chougule" target="_blank" class="contact-btn">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="mailto:chandchougule@example.com" class="contact-btn">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="spatial-footer">
+    &copy; <span id="year"></span> Chand Chougule. Spatial Portfolio.
+  </footer>
+
+  <!-- Back to Original -->
+  <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Classic View</a>
+
+  <script>
+    // ======= Spatial Portfolio Engine =======
+
+    // -- Year --
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // -- Star Field Canvas --
+    (function() {
+      const canvas = document.getElementById('stars-canvas');
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      const STAR_COUNT = 200;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function init() {
+        resize();
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+          stars.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 1.5 + 0.3,
+            vx: (Math.random() - 0.5) * 0.15,
+            vy: (Math.random() - 0.5) * 0.15,
+            alpha: Math.random() * 0.6 + 0.2,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      let time = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        time += 0.01;
+
+        stars.forEach(s => {
+          s.x += s.vx;
+          s.y += s.vy;
+          s.phase += 0.02;
+
+          if (s.x < 0) s.x = canvas.width;
+          if (s.x > canvas.width) s.x = 0;
+          if (s.y < 0) s.y = canvas.height;
+          if (s.y > canvas.height) s.y = 0;
+
+          const a = s.alpha + Math.sin(s.phase) * 0.15;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(148, 163, 184, ${Math.max(0, a)})`;
+          ctx.fill();
+        });
+
+        requestAnimationFrame(draw);
+      }
+
+      window.addEventListener('resize', resize);
+      init();
+      draw();
+    })();
+
+    // -- CSS Particles --
+    (function() {
+      const container = document.getElementById('particles-container');
+      const COUNT = 15;
+      const colors = ['rgba(129,140,248,0.4)', 'rgba(139,92,246,0.3)', 'rgba(251,191,36,0.25)'];
+
+      for (let i = 0; i < COUNT; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 4 + 2;
+        const left = Math.random() * 100;
+        const dur = Math.random() * 15 + 10;
+        const delay = Math.random() * 15;
+        const dx = (Math.random() - 0.5) * 100;
+        p.style.cssText = `
+          width: ${size}px; height: ${size}px;
+          left: ${left}%;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          animation-duration: ${dur}s;
+          animation-delay: ${delay}s;
+          --dx: ${dx}px;
+        `;
+        container.appendChild(p);
+      }
+    })();
+
+    // -- Typing Effect --
+    (function() {
+      const el = document.getElementById('typed-text');
+      const phrases = [
+        'Crafting Digital Excellence',
+        'Building Premium Experiences',
+        'Architecting Clean Code',
+        'Designing Spatial Interfaces'
+      ];
+      let pi = 0, ci = 0, deleting = false;
+
+      function tick() {
+        const phrase = phrases[pi];
+        if (!deleting) {
+          el.textContent = phrase.substring(0, ci + 1);
+          ci++;
+          if (ci === phrase.length) {
+            setTimeout(() => { deleting = true; tick(); }, 2000);
+            return;
+          }
+          setTimeout(tick, 90);
+        } else {
+          el.textContent = phrase.substring(0, ci - 1);
+          ci--;
+          if (ci === 0) {
+            deleting = false;
+            pi = (pi + 1) % phrases.length;
+            setTimeout(tick, 400);
+            return;
+          }
+          setTimeout(tick, 45);
+        }
+      }
+      setTimeout(tick, 800);
+    })();
+
+    // -- Scroll Reveal --
+    (function() {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+
+            // Stagger children
+            if (e.target.classList.contains('reveal-stagger')) {
+              const cards = e.target.querySelectorAll('.spatial-card');
+              cards.forEach((c, i) => {
+                c.style.transitionDelay = `${i * 0.08}s`;
+              });
+            }
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => obs.observe(el));
+    })();
+
+    // -- Category Filtering --
+    (function() {
+      const pills = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('.spatial-card');
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+
+          const filter = pill.dataset.filter;
+
+          cards.forEach(card => {
+            const cat = card.dataset.cat;
+            if (filter === 'all' || cat === filter) {
+              card.style.display = '';
+              setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+              }, 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'translateY(20px)';
+              setTimeout(() => { card.style.display = 'none'; }, 400);
+            }
+          });
+        });
+      });
+    })();
+
+    // -- 3D Tilt on Cards --
+    (function() {
+      if (window.innerWidth < 768) return;
+
+      document.querySelectorAll('.spatial-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+
+          const rotateY = ((x - cx) / cx) * 6;
+          const rotateX = ((cy - y) / cy) * 6;
+
+          card.style.transform = `translateY(-12px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+        });
+      });
+    })();
+
+    // -- Smooth Scroll --
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

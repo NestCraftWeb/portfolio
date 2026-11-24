@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Rupeeve</string>
+    <string name="title_activity_main">Rupeeve</string>
+    <string name="package_name">com.paisakhata.app</string>
+    <string name="custom_url_scheme">com.paisakhata.app</string>
+</resources>
